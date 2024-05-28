@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/NadinSoft/.vs/NadinSoft
+/NadinSoft/NadinSoft.Application/obj
+/NadinSoft/NadinSoft.Domain/obj
+/NadinSoft/NadinSoft.Infrastructure/obj
+/NadinSoft/NadinSoft.Presentation.Api/obj
