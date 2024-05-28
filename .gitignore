@@ -7,3 +7,6 @@
 /NadinSoft/NadinSoft.Domain/obj
 /NadinSoft/NadinSoft.Infrastructure/obj
 /NadinSoft/NadinSoft.Presentation.Api/obj
+/NadinSoft/NadinSoft.Domain/bin/Debug/net8.0
+/NadinSoft/NadinSoft.Infrastructure/bin/Debug/net8.0
+/NadinSoft/NadinSoft.Presentation.Api/bin/Debug/net8.0
