@@ -28,10 +28,10 @@ builder.Services.AddAuthentication(options =>
 {
     o.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidIssuer = "test",
+        ValidAudience = "test",
         IssuerSigningKey = new SymmetricSecurityKey
-        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        (Encoding.UTF8.GetBytes(builder.Configuration["AppSettings:Secret"])),
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = false,
@@ -74,7 +74,7 @@ builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSet
 
 builder.Services.AddDbContext<NadinSoftDbContext>(options =>
 {
-    options.UseSqlServer("Data Source=.;Initial Catalog=CleanTest;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=01324623035mahdimahdimahdi;Trust Server Certificate=True");
+    options.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings")["ConnectionName"]);
 });
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(NadinSoft.Application.CommandsQueries.Product.Commands.Create.CreateProduct).Assembly));

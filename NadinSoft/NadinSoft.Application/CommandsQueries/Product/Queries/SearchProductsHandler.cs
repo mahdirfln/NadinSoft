@@ -19,9 +19,15 @@ namespace NadinSoft.Application.CommandsQueries.Product.Queries
 
         public async Task<IList<Domain.Entities.Product>> Handle(SearchProducts request, CancellationToken cancellationToken)
         {
-            var products = await _productRepository.GetAll();
+            var products = _productRepository.Table();
 
-            return await Task.FromResult(products);
+            if (request.Id > 0)
+                products = products.Where(p => p.Id.Equals(request.Id));
+
+            if (request.UserId > 0)
+                products = products.Where(p => p.UserId.Equals(request.UserId));
+
+            return await Task.FromResult(products.ToList());
         }
     }
 }
